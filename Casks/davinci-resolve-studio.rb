@@ -9,7 +9,8 @@ cask "davinci-resolve-studio" do
   homepage "https://www.blackmagicdesign.com/products/davinciresolve"
 
   installer script: {
-    executable: "#{staged_path}/studio.sh",
+    executable: "/bin/bash",
+    args:       ["#{staged_path}/studio.sh"],
     sudo:       true,
   }
 

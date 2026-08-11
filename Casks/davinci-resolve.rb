@@ -9,7 +9,8 @@ cask "davinci-resolve" do
   homepage "https://www.blackmagicdesign.com/products/davinciresolve"
 
   installer script: {
-    executable: "#{staged_path}/free.sh",
+    executable: "/bin/bash",
+    args:       ["#{staged_path}/free.sh"],
     sudo:       true,
   }
 
