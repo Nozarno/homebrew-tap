@@ -1,0 +1,22 @@
+name: Test DaVinci Resolve Studio
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'apps/davinci/studio.sh'
+      - '.github/workflows/davinci-studio.yml'
+  schedule:
+    - cron: '0 8 * * 1'
+
+jobs:
+  test-downloader:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Lancer le test
+        run: |
+          chmod +x apps/davinci/studio.sh
+          ./apps/davinci/studio.sh --dry-run

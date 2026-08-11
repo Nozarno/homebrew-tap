@@ -1,0 +1,44 @@
+name: Update DaVinci Versions
+
+on:
+  schedule:
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+
+jobs:
+  check-and-update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Mettre à jour les numéros de version
+        run: |
+          USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+
+          # Version Gratuite
+          JSON_FREE=$(curl -s -H "User-Agent: $USER_AGENT" "https://www.blackmagicdesign.com/api/support/latest-stable-version/davinci-resolve/mac")
+          ONLINE_FREE=$(echo "$JSON_FREE" | python3 -c "import sys, json; d=json.load(sys.stdin)['mac']; print(f\"{d['major']}.{d['minor']}.{d['releaseNum']}\")")
+          if [ -n "$ONLINE_FREE" ]; then
+            sed -i "s/version \".*\"/version \"$ONLINE_FREE\"/" Casks/davinci-resolve.rb
+            # On sauvegarde la version gratuite dans les variables d'environnement de GitHub Actions
+            echo "RESOLVE_FREE_VER=$ONLINE_FREE" >> $GITHUB_ENV
+          fi
+
+          # Version Studio
+          JSON_STUDIO=$(curl -s -H "User-Agent: $USER_AGENT" "https://www.blackmagicdesign.com/api/support/latest-stable-version/davinci-resolve-studio/mac")
+          ONLINE_STUDIO=$(echo "$JSON_STUDIO" | python3 -c "import sys, json; d=json.load(sys.stdin)['mac']; print(f\"{d['major']}.{d['minor']}.{d['releaseNum']}\")")
+          if [ -n "$ONLINE_STUDIO" ]; then
+            sed -i "s/version \".*\"/version \"$ONLINE_STUDIO\"/" Casks/davinci-resolve-studio.rb
+            # On sauvegarde la version Studio dans les variables d'environnement
+            echo "RESOLVE_STUDIO_VER=$ONLINE_STUDIO" >> $GITHUB_ENV
+          fi
+
+      - name: Commit & Push automatique
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          # On utilise les variables générées juste au-dessus pour construire le message
+          commit_message: "chore: maj DaVinci Resolve (${{ env.RESOLVE_FREE_VER }}) et Studio (${{ env.RESOLVE_STUDIO_VER }})"
+          branch: main

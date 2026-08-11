@@ -1,0 +1,22 @@
+name: Test DaVinci Resolve (Free)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'apps/davinci/free.sh'
+      - '.github/workflows/davinci-free.yml'
+  schedule:
+    - cron: '0 8 * * 1'
+
+jobs:
+  test-downloader:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Lancer le test
+        run: |
+          chmod +x apps/davinci/free.sh
+          ./apps/davinci/free.sh --dry-run

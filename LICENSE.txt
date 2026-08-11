@@ -1,0 +1,44 @@
+MIT License
+
+Copyright (c) 2024 Nozarno
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+==============================================================================
+AVERTISSEMENT SUPPLÉMENTAIRE ET CONDITIONS D'UTILISATION (FR)
+==============================================================================
+
+1. Statut non officiel : Ces scripts d'automatisation ne sont ni approuvés,
+   ni fournis, ni supportés par Blackmagic Design. Il s'agit d'un outil créé
+   par et pour la communauté.
+
+2. Fragilité du système : Cette méthode repose sur l'API web et l'architecture
+   actuelle du site de Blackmagic Design. Ce système peut "casser" ou devenir
+   obsolète à tout moment si l'éditeur modifie sa façon de distribuer ses
+   logiciels. Bien que des efforts de maintenance soient possibles, aucune
+   garantie de mise à jour n'est fournie.
+
+3. Décharge de responsabilité absolue : L'auteur (Nozarno) décline toute
+   responsabilité concernant d'éventuels bugs, instabilités du système d'exploitation,
+   pertes de données, ou dommages consécutifs à l'utilisation de ce dépôt.
+   Vous l'utilisez à vos risques et périls.
+
+4. Modifications et Forks : Si vous souhaitez modifier ce fonctionnement ou
+   l'adapter (réparation de liens, ajustements pour votre usage), il est
+   fortement recommandé de dupliquer (Fork) ce dépôt sur votre propre compte.
