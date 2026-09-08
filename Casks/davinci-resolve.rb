@@ -1,5 +1,5 @@
 cask "davinci-resolve" do
-  version "21.0.4"
+  version "21.1.0"
   sha256 :no_check
 
   url "https://raw.githubusercontent.com/Nozarno/homebrew-tap/main/apps/davinci/free.sh",
